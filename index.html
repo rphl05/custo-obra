@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custo Obra - Onde você calcula o material da sua obra.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="scripts/const.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    
+</head>
+<body>
+    <header>
+        <!-- Top menu-->
+         <div id="top-menu" >
+            <div id="top-menu-logo">
+                <a href="#" onclick="showContent('main-content-default'); hideResults(); menuClassRemover()">
+                    <img src="images/custo-obra-logo-branco.png" alt="Custo Obra - Onde você calcula o material da sua obra" id="top-menu-logo-img"/>
+                </a>
+                </div>
+            <nav id="top-menu-links">
+                <a href="#" onclick="showContent('main-content-wall-calc'); hideResults();selectMenu('calc-wall-link')" id="calc-wall-link">Cálculo Parede ou Muro</a>
+                <a href="#" onclick="showContent('main-content-foundation-calc'); hideResults();selectMenu('calc-foundation-link')" id="calc-foundation-link">Cálculo Brocas</a>
+                <a href="#" onclick="showContent('main-content-columns-calc'); hideResults();selectMenu('calc-columns-link')" id="calc-columns-link">Cálculo Colunas e Cintas</a>
+            </nav>
+         </div>
+    </header>
+    <section id="main-content">
+        <!-- Error Message -->
+         <div id="error-container">
+            <img src="images/icon-alert.png"/>
+            <p id="error-container-text"></p>
+            <button onclick="closeErrorContainer()" id="error-container-button">Entendido</button>
+         </div>
+        <!-- Default content-->
+        <div id="main-content-default" class="content-section">
+            <div id="main-content-left" >
+                <div class="title-container">
+                    <h1 class="h1-title-1"><span class="text-bg">Bem vindo(a)</span> a calculadora de material para a sua obra.</h1>
+                </div>
+                <div class="subtitle-description">    
+                    <h2 class="h2-title-2"><p>Construir a casa dos seus sonhos é uma conquista enorme, mas o caminho até lá pode ser cheio de dúvidas — especialmente na hora 
+                    de saber quanto material comprar. Errar nessa conta significa dinheiro jogado fora ou obra parada no meio. 
+                    Com o Custo Obra, você não precisa ser engenheiro para chegar num número confiável. É só informar as medidas da sua obra e a gente cuida do resto. 
+                    Paredes, fundações, colunas e cintas — cada etapa tem a sua calculadora, 
+                    pensada pra ser simples e rápida de usar. Assim você chega na loja de materiais sabendo exatamente o que precisa, sem surpresa no orçamento e sem desperdício.</p></h2>
+                </div>
+            </div>
+            <div id="main-content-right" >
+                <div class="service-description">
+                    <div class="title-description-container">
+                        <span class="title-description">- Parede ou muro</span>
+                    </div>
+                    <span class="description-text">Calcula a quantidade de blocos/tijolos e argamassa com base nas dimensões da parede ou muro.</span>
+                </div>
+                <div class="service-description">
+                    <div class="title-description-container">
+                        <span class="title-description">- Brocas e fundações</span>
+                    </div>
+                    <span class="description-text">Calcula o volume de concreto e a estimativa de materiais estruturais conforme as medidas informadas.</span>
+                </div>
+                <div class="service-description">
+                    <div class="title-description-container">
+                       <span class="title-description">- Colunas e cintas</span>
+                    </div>
+                    <span class="description-text">Calcula o volume de concreto e uma estimativa de materiais necessários para a estrutura e o concreto.</span>
+                </div>
+            </div>
+        </div>
+        <!-- Wall calculation tool-->
+        <div id="main-content-wall-calc" class="content-section">
+            <div class="calc-description">
+                <div class="title-container">
+                    <h1 class="h1-title-1">Cálculo de material para Parede ou Muro</h1>
+                </div>
+                <div class="subtitle-description">    
+                    <h2 class="h2-title-2">
+                        <p>Preencha em <span class="text-bg">metros</span> a altura da parede e a largura da parede. 
+                        Caso tenha alguma janela ou porta você deve preencher a área em <span class="text-bg">metros quadrados</p>
+                        <p>A calculadora irá fornecer a lista de materiais que serão necessários para fazer o muro e o roboco com a metragem necessária.</p>
+                        <p class="bottom-notes">*Lembre-se que ao comprar os materiais é recomendável comprar em uma quantidade 10% maior.</p>
+                        
+                    </h2>
+                </div>
+            
+            </div>
+            <div class="calc-form">
+                 <form class="main-content-form">
+                    <h3>Dados da parede</h3>
+                    <div class="calc-item">
+                        <label class="main-content-form-item-text">ALTURA(M) </label>
+                        <input type="text" name="wallHeight" id="wallHeight" class="main-content-form-item-input" >
+                    </div>
+                    <div class="calc-item">
+                        <label class="main-content-form-item-text">LARGURA(M)</label>
+                        <input type="text" name="wallWidth" id="wallWidth" class="main-content-form-item-input" >
+                    </div>
+                    <div class="calc-item">
+                        <label class="main-content-form-item-text">ÁREA DAS JANELAS (M²) </label>
+                        <input type="text" name="wallWindows" id="wallWindows" class="main-content-form-item-input" placeholder="Ex. 1.5" >
+                    </div>
+                    <div class="calc-item">
+                        <label class="main-content-form-item-text">ÁREA DAS PORTAS (M²)</label>
+                        <input type="text" name="wallDoors" id="wallDoors" class="main-content-form-item-input" placeholder="Ex. 3.5">
+                    </div>
+                    <div class="calc-item">
+                        <label class="main-content-form-item-text">MODELO DAS LAJOTAS:</label>
+                        <select id="brickModel" name="brickModel">
+                                    <option value="9x19x19"> 9x19x19</option>
+                                    <option value="9x19x29"> 9x19x29</option>
+                                    <option value="11,5x14x24"> 11,5x14x24</option>
+                                    <option value="11,5x19x29"> 11,5x19x29</option>
+                                    <option value="14x19x29"> 14x19x29</option>
+                                    <option value="19x19x29"> 19x19x29</option>
+                        </select>
+                    </div>
+                    <div class="calc-buttons">
+                        <button type="button" class="button-confirm" onclick="calcWall()">Calcular</button>
+                        <button type="reset" class="button-reset" onclick="hideResults()">Resetar</button>
+                    </div>                                       
+                 </form>
+            </div>
+        </div>
+        <!-- Foundation calc tool-->
+        <div id="main-content-foundation-calc" class="content-section">
+            <div class="calc-description">
+                <div class="title-container">
+                    <h1 class="h1-title-1">Cálculo de material para Brocas e fundações</h1>
+                </div>
+                <div class="subtitle-description">    
+                    <h2 class="h2-title-2">
+                        <p>Preencha em <span class="text-bg">centímetros</span> a largura e o comprimento da armação de ferro e em <span class="text-bg">metros</span> 
+                            a altura da armação de ferro. Caso não saiba o diâmetro e a altura do buraco, o sistema irá calcular para você um tamanho padrão, mas se você for preencher 
+                        o diâmetro está em <span class="text-bg">centímetros</span> e a altura está em <span class="text-bg">metros</span>.</p>
+                        <p>A calculadora irá fornecer a lista de materiais que serão necessários para fazer a armação, o volume do concreto e o material necessário para fazer o concreto.</p>
+                        <p class="bottom-notes">*Lembre-se que ao comprar os materiais é recomendável comprar em uma quantidade 10% maior.</p>
+                        
+                    </h2>
+                </div>
+
+            </div>
+            <div class="calc-form">
+                <form class="main-content-form">
+                    <h3>Dados da armação de ferro</h3>
+                    <div class="calc-group">
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">Largura(CM)</label>
+                            <input type="text" name="frameWidth" id="frameWidth" value="0" class="main-content-form-item-input" onkeyup="holeCalc()" >
+                        </div>
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">COMPRIMENTO(CM)</label>
+                            <input type="text" name="frameLength" id="frameLength" value="0" class="main-content-form-item-input" onkeyup="holeCalc()" >
+                        </div>
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">ALTURA(M)</label>
+                            <input type="text" name="frameHeight" id="frameHeight" value="0" class="main-content-form-item-input" onkeyup="holeCalc()" >
+                        </div>
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">DISTÂNCIA ENTRE OS ESTRIBOS(CM)</label>
+                            <input type="text" name="frameStirrupDistance" id="frameStirrupDistance" value="0" class="main-content-form-item-input" >
+                        </div>
+                    </div>                    
+                    <h3>Dados do furo da broca</h3>
+                    <div class="calc-group">
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">DIÂMETRO DA BROCA(CM)</label>
+                            <input type="text" name="holeDiameter" id="holeDiameter" class="main-content-form-item-input" >
+                        </div>
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">ALTURA DA BROCA(M)</label>
+                            <input type="text" name="holeHeight" id="holeHeight" class="main-content-form-item-input" >
+                        </div>
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">TOTAL DE BROCAS(UN)</label>
+                            <input type="text" name="totalHoles" id="totalHoles" value="0" class="main-content-form-item-input" >
+                        </div>
+                    </div>
+                    <div class="calc-buttons">
+                        <button type="button" class="button-confirm" onclick="calcFoundation()">Calcular</button>
+                        <button type="reset" class="button-reset" onclick="hideResults()">Resetar</button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+        <!-- Columns columns tool-->
+        <div id="main-content-columns-calc" class="content-section">
+            <div class="calc-description">
+                <div class="title-container">
+                    <h1 class="h1-title-1">Cálculo de material para colunas e cintas</h1>
+                </div>
+                <div class="subtitle-description">    
+                    <h2 class="h2-title-2">
+                        <p>Preencha em <span class="text-bg">centímetros</span> a largura e o comprimento da armação de ferro e em <span class="text-bg">metros</span> 
+                            a altura da armação de ferro. 
+                        <p>A calculadora irá fornecer a lista de materiais que serão necessários para fazer a armação, o volume do concreto e o material necessário para fazer o concreto.</p>
+                        <p class="bottom-notes">*Lembre-se que ao comprar os materiais é recomendável comprar em uma quantidade 10% maior.</p>
+                        
+                    </h2>
+                </div>
+
+            </div>
+            <div class="calc-form">
+                <form class="main-content-form">
+                    <h3>Dados da armação de ferro</h3>
+                    <div class="calc-group">
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">LARGURA(CM)</label>
+                            <input type="text" name="frameColumnWidth" id="frameColumnWidth" value="0" class="main-content-form-item-input" >
+                        </div>
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">COMPRIMENTO(CM)</label>
+                            <input type="text" name="frameColumnLength" id="frameColumnLength" value="0" class="main-content-form-item-input" >
+                        </div>
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">ALTURA(M)</label>
+                            <input type="text" name="frameColumnHeight" id="frameColumnHeight" value="0" class="main-content-form-item-input" >
+                        </div>
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">DISTÂNCIA ENTRE OS ESTRIBOS(CM)</label>
+                            <input type="text" name="frameColumnStirrupDistance" id="frameColumnStirrupDistance" value="0" class="main-content-form-item-input" >
+                        </div>
+                        <div class="calc-item">
+                            <label class="main-content-form-item-text">TOTAL DE COLUNAS</label>
+                            <input type="text" name="totalColumns" id="totalColumns" value="0" class="main-content-form-item-input" >
+                        </div>
+                    </div>
+                    <div class="calc-buttons">
+                        <button type="button" class="button-confirm" onclick="calcColumns()">Calcular</button>
+                        <button type="reset" class="button-reset" onclick="hideResults()">Resetar</button>
+                    </div> 
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- RESULTS -->
+    <section id="results">
+        <div id="results-container">
+            <table class="main-content-form-table" id="results-table">
+                
+            </table>
+        </div>
+    </section>
+    
+</body>
+</html>
