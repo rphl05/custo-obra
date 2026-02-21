@@ -1,17 +1,17 @@
 
 //This function will show the content was select by user
 function showContent(id) {
-    // Hide all divs with class "content-section"
     document.querySelectorAll(".content-section").forEach(div => {
         div.style.display = "none";
     });
     
-    // Show selected content
     let selectedElement = document.getElementById(id);
     selectedElement.style.display = "flex";
-    selectedElement.classList.remove("content-section");
-    void selectedElement.offsetWidth;
-    selectedElement.classList.add("content-section");
+    
+    // Reinicia a animação sem remover a classe
+    selectedElement.style.animation = "none";
+    void selectedElement.offsetWidth; // força o reflow
+    selectedElement.style.animation = "";
 }
 
 //This Function will make the calculation of materials used to make a wall

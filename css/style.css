@@ -112,11 +112,6 @@
         transition: var(--trasition-bg);
     }
 
-    .link-separator{
-        color: #fff;
-        font-size: 1.2rem;
-    }
-
     /*Section Main Content Style*/
     @keyframes descer-do-topo {
     from {                         /* estado inicial (0%) */
@@ -219,6 +214,20 @@
         flex-direction: row;
         gap:30px;
         animation: fadeIn 0.6s ease-out;
+    }
+    /*About me*/
+    #about-me {
+        background-color: var(--content-bg);
+        border-radius: 5px;
+        padding:20px;
+        display: none;
+    }
+    .about-container {
+        background-color: var(--content-bg);
+        width: 80vw;
+        margin:auto;
+        border-radius: 5px;
+        padding:20px;
     }
 
     /* Wall calculation tool*/
@@ -526,3 +535,53 @@
         text-align: center;
         width: 30%;
     } 
+
+    /*LAYOUT FOR MOBILE*/
+    @media (max-width: 768px){
+        #top-menu{
+            flex-direction: column;
+            height: auto;
+        }
+        #top-menu-logo,
+        #top-menu-links{
+            width: 100%;
+        }
+
+        #top-menu-links a{
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        #main-content{
+            width: 95vw;
+            margin:auto;
+            margin-top: 30px;
+        }
+
+        #main-content-default,
+        .content-section,
+        #main-content-columns-calc{
+            flex-direction: column;
+        }
+
+        #main-content-left, 
+        #main-content-right,
+        .calc-description,
+        .calc-form{
+            width: 100%;
+            height: auto;
+        }
+
+        #results-table{
+            width: 95%;
+        }
+
+        .h1-title-1{
+            font-size: 1.5rem;
+        }
+
+        #error-container{
+            width: 95vw;
+            min-height: 400px;
+        }
+    }
